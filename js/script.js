@@ -2,6 +2,7 @@ import ehUmCPF from "./valida-cpf.js";
 import ehMaiorDeIdade from "./valida-idade.js";
 const camposDoFormulario = document.querySelectorAll("[required]");
 const formulario = document.querySelector("[data-formulario]");
+const campo = document.querySelector(".campo__escrita");
 
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -72,6 +73,7 @@ function verificaCampo(campo) {
     tiposDeErro.forEach(erro => {
         if (campo.validity[erro]) {
             mensagem = mensagens[campo.name][erro];
+            campo.style.border = "2px solid red";
             console.log(mensagem);
             }
     })
